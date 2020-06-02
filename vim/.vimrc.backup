@@ -1,0 +1,101 @@
+syntax on
+set autoread
+set nu
+set ai
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set cursorline
+set confirm
+set history=1000
+set tabstop=4
+set softtabstop=4
+set expandtab
+set wildmenu
+set showmatch
+"nnoremap jk :nohlsearch<CR>
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+nnoremap <space> za
+set foldmethod=syntax
+inoremap jk <esc>
+set clipboard=unnamedplus
+set background=light
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 10
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+function! GitDirty()
+  return strlen(system("git status -s")) > 0?'*':''
+endfunction
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  let l:branchdirty = GitDirty()
+  return strlen(l:branchname) > 0?'  '.l:branchname.l:branchdirty.' >':''
+endfunction
+
+hi StatusBlack cterm=bold ctermbg=Black ctermfg=White
+hi StatusWhite cterm=bold ctermbg=White ctermfg=Black
+hi StatusDarkBlueBold cterm=bold ctermbg=DarkBlue ctermfg=White
+hi StatusDarkBlue ctermbg=DarkBlue ctermfg=White
+hi StatusDarkGreen cterm=bold ctermbg=DarkGreen ctermfg=White
+hi StatusDarkCyan cterm=bold ctermbg=DarkCyan ctermfg=White
+hi StatusDarkRed cterm=bold ctermbg=DarkRed ctermfg=White
+hi StatusDarkYellow cterm=bold ctermbg=DarkYellow ctermfg=White
+hi StatusDarkGray cterm=bold ctermbg=DarkGray ctermfg=White
+hi StatusDarkMagenta ctermbg=DarkMagenta ctermfg=White
+hi StatusGray cterm=bold ctermbg=Gray ctermfg=Black
+hi StatusBlue cterm=bold ctermbg=Blue ctermfg=Black
+hi StatusGreen cterm=bold ctermbg=Green ctermfg=Black
+hi StatusCyan cterm=bold ctermbg=Cyan ctermfg=Black
+hi StatusRed cterm=bold ctermbg=Red ctermfg=Black
+hi StatusMagenta cterm=bold ctermbg=Magenta ctermfg=Black
+hi StatusYellow cterm=bold ctermbg=Yellow ctermfg=Black
+
+hi TextWhite ctermfg=Black ctermbg=White
+hi TextRed ctermfg=DarkRed ctermbg=White
+
+set laststatus=2
+" Status line
+" Modes:
+set statusline+=%#StatusWhite#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#StatusDarkGreen#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#StatusDarkYellow#%{(mode()=='R')?'\ \ REPLAC\ ':''}
+set statusline+=%#StatusDarkMagenta#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#StatusDarkRed#%{(mode()=='c')?'\ \ COMAND\ ':''}
+" Git:
+set statusline+=%#StatusDarkBlueBold#%{StatuslineGit()}
+set statusline+=%#StatusDarkBlue#\ %t
+set statusline+=%{&modified?'*':''}\ 
+set statusline+=%#TextWhite#\ Hellothere\
+set statusline+=%m\
+set statusline+=%=
+set statusline+=\ %y
+set statusline+=TIME:\ %{strftime('%H:%M')}
+set statusline+=\ 
+"set statusline+=%=        " Switch to the right side
+"set statusline+=%l        " Current line
+"set statusline+=/         " Separator
+"set statusline+=%#TextRed#%L        " Total lines
+"set statusline+=%m
+call timer_start(1000, {-> execute(':let &stl=&stl')}, {'repeat': -1}) " auto update status line :)
+set noshowmode  " to get rid of thing like --INSERT--
+set noshowcmd  " to get rid of display of last command
+set shortmess+=F  " to get rid of the file name displayed in the command line bar
