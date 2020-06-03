@@ -9,7 +9,7 @@ dotfiles=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $dotfiles
 for folder in [^.]*/
 do
-    echo "Installing "$folder
-    echo "Executing: "$dotfiles/$folder"install.sh"
+    echo "[install-main] Installing: "$folder
     /bin/bash "$dotfiles/$folder"install.sh
 done
+echo "[install-main] Done!"
