@@ -1,17 +1,3 @@
-function! GitDirty()
-  return strlen(system("git status -s")) > 0?'*':''
-endfunction
-
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  let l:branchdirty = GitDirty()
-  return strlen(l:branchname) > 0?'  '.l:branchname.l:branchdirty.' >':''
-endfunction
-
 set laststatus=2
 " Status line
 " Modes:
@@ -21,13 +7,12 @@ set statusline+=%#StatusDarkYellow#%{(mode()=='R')?'\ \ REPLAC\ ':''}
 set statusline+=%#StatusDarkMagenta#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 set statusline+=%#StatusDarkRed#%{(mode()=='c')?'\ \ COMAND\ ':''}
 " Git:
-set statusline+=%#StatusDarkBlueBold#%{StatuslineGit()}
 set statusline+=%#StatusDarkBlue#\ %t
 set statusline+=%{&modified?'*':''}\ 
 set statusline+=%l/%L:%c
 set statusline+=%=
 set statusline+=%y\ 
-set statusline+=%{strftime('%H:%M')}
+set statusline+=%{strftime('%H:%M:%S')}
 set statusline+=\ 
 "set statusline+=%=        " Switch to the right side
 "set statusline+=%l        " Current line
