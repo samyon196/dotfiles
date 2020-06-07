@@ -12,7 +12,6 @@ set statusline+=%{&modified?'*':''}\
 set statusline+=%l/%L:%c
 set statusline+=%=
 set statusline+=%y\ 
-set statusline+=%{strftime('%H:%M:%S')}
 set statusline+=\ 
 "set statusline+=%=        " Switch to the right side
 "set statusline+=%l        " Current line
