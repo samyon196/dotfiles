@@ -7,7 +7,7 @@ hi StatusDarkCyan cterm=bold ctermbg=DarkCyan ctermfg=White
 hi StatusDarkRed cterm=bold ctermbg=DarkRed ctermfg=White
 hi StatusDarkYellow cterm=bold ctermbg=DarkYellow ctermfg=White
 hi StatusDarkGray cterm=bold ctermbg=DarkGray ctermfg=White
-hi StatusDarkMagenta ctermbg=DarkMagenta ctermfg=White
+hi StatusDarkMagenta cterm=bold ctermbg=DarkMagenta ctermfg=White
 hi StatusGray cterm=bold ctermbg=Gray ctermfg=Black
 hi StatusBlue cterm=bold ctermbg=Blue ctermfg=Black
 hi StatusGreen cterm=bold ctermbg=Green ctermfg=Black
