@@ -17,3 +17,4 @@ hi StatusMagenta cterm=bold ctermbg=Magenta ctermfg=Black
 hi StatusYellow cterm=bold ctermbg=Yellow ctermfg=Black
 hi TextWhite ctermfg=Black ctermbg=White
 hi TextRed ctermfg=DarkRed ctermbg=White
+hi NoneBg ctermfg=White ctermbg=None

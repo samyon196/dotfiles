@@ -1,13 +1,14 @@
 set laststatus=2
 " Status line
 " Modes:
-set statusline+=%#StatusWhite#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#StatusDarkGreen#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#StatusDarkYellow#%{(mode()=='R')?'\ \ REPLAC\ ':''}
-set statusline+=%#StatusDarkMagenta#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=%#StatusDarkRed#%{(mode()=='c')?'\ \ COMAND\ ':''}
+set statusline+=%#StatusWhite#\ 
+set statusline+=%#StatusWhite#%{(mode()=='n')?'\ -\ ':''}
+set statusline+=%#StatusDarkGreen#%{(mode()=='i')?'\ i\ ':''}
+set statusline+=%#StatusDarkYellow#%{(mode()=='R')?'\ r\ ':''}
+set statusline+=%#StatusDarkMagenta#%{(mode()=='v')?'\ v\ ':''}
+set statusline+=%#StatusDarkRed#%{(mode()=='c')?'\ c\ ':''}
 " Git:
-set statusline+=%#StatusDarkBlue#\ %t
+set statusline+=%#NoneBg#\ %t
 set statusline+=%{&modified?'*':''}\ 
 set statusline+=%l/%L:%c
 set statusline+=%=
