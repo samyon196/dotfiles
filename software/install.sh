@@ -11,8 +11,8 @@ echo "[[ -r \"/usr/share/z/z.sh\" ]] && source /usr/share/z/z.sh" >> ~/.zshrc
 yay -S --noconfirm peco-bin icdiff dust-bin ruby-colorls
 
 # install tldr
-curl -o /usr/bin/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
-chmod +x /usr/bin/tldr
+sudo curl -o /usr/bin/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
+sudo chmod +x /usr/bin/tldr
 echo "export TLDR_HEADER='magenta bold underline'" >> ~/.zshrc
 echo "export TLDR_QUOTE='italic'" >> ~/.zshrc
 echo "export TLDR_DESCRIPTION='green'" >> ~/.zshrc
