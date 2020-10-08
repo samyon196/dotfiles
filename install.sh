@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo echo "Sudo approved, continue.."
 # Remove dist folder
 rm -rf .dist
 mkdir .dist
