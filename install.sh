@@ -12,4 +12,5 @@ do
     echo "[install-main] Installing: "$folder
     /bin/bash "$dotfiles/$folder"install.sh
 done
-echo "[install-main] Done!"
+echo "[install-main] Done, Loggin you out for changes to take place"
+kill -9 -1
