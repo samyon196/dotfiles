@@ -16,3 +16,8 @@ cp $dotfiles/zsh/.p10k.zsh $dotfiles/.dist/.p10k.zsh
 cp $dotfiles/zsh/.zshrc $dotfiles/.dist/.zshrc
 ln $dotfiles/.dist/.p10k.zsh ~/.p10k.zsh
 ln $dotfiles/.dist/.zshrc ~/.zshrc
+
+# Plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-autosuggestions
+
