@@ -2,6 +2,10 @@
 
 # Get dotfiles location (parent of this script)
 dotfiles=$( cd "$(dirname "${BASH_SOURCE[0]}")/.." ; pwd -P )
+# create dist dir if...
+if [ ! -d $dotfiles/.dist ]; then
+	mkdir -p $dotfiles/.dist;
+fi
 # Remove linker file, if any:
 rm -rf $dotfiles/.dist/.zshrc
 rm -rf $dotfiles/.dist/.p10k.zsh

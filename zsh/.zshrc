@@ -20,6 +20,9 @@ export TLDR_PARAM='red'
 alias cat="bat"
 alias ls="colorls"
 alias diff="icdiff"
+alias tmux="tmux -u"
+alias t="tmux -u"
+alias v="vim"
 
 
 # Enable colors and change prompt:
